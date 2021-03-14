@@ -4,6 +4,6 @@ resource "aws_internet_gateway" "my_ig" {
   tags = {
     Name = "my_ig"
     Department = "Production"
-    Created_by = "Keskin"
+    Created_by = "Name"
   }
 }

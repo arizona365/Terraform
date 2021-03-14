@@ -5,7 +5,7 @@ resource aws_vpc my_vpc {
   tags = {
     Name = "main_vpc"
     Department = "Production"
-    Created_by = "Keskin"
+    Created_by = "name"
   }
 
 
