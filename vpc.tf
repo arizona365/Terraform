@@ -1,12 +1,12 @@
-resource aws_vpc my_vpc {
-  cidr_block       = "10.2.0.0/16"
-  instance_tenancy = "default"
+resource "aws_vpc" "my_vpc" {
+
+  cidr_block       = var.cidr_block_vpc 
+  instance_tenancy = var.instance_tenancy
 
   tags = {
-    Name = "main_vpc"
+    Name = "${var.prefix} main_vpc"
     Department = "Production"
-    Created_by = "name"
+    Created_by = "Keskin"
   }
-
 
 }

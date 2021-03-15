@@ -1,0 +1,13 @@
+cidr_block_vpc    = "10.1.0.0/16"
+instance_tenancy  = "default"
+key_name          = "my_macbook_key"
+ssh_key_path      = "~/.ssh/id_rsa.pub"
+region            = "us-east-1"
+cidr_block_subnet = "10.1.1.0/24"
+map_public_ip_on_launch = true
+cidr_block_route_table  = "0.0.0.0/0"
+security_group_name     = "allow ssh and http"
+security_group_description = "It will allow ssh and http connection"
+prefix        = "Dev"
+ami           = " ami-038f1ca1bd58a5790"
+instance_type = "t2.micro"
