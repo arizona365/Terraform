@@ -1,6 +1,6 @@
 # Terraform
 
-Session.1 =
+<!-- Session.1 =
     -EC2
     -PUBLIC SUBNET
     -INTERNET GATEWAYS
@@ -8,4 +8,4 @@ Session.1 =
     -ROUTE TABLE
     -ROUTE TABLES ASSOCIATION
     -SECURITY GROUP
-    -VPC
+    -VPC -->
