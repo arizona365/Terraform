@@ -33,23 +33,35 @@ resource "aws_instance" "web" {
     # Default timeout is 5 minutes
     timeout     = "4m"
   }
-  provisioner "file" {
-    content     = "Hello there"
-    destination = "/home/ec2-user/devops.txt"
-  }
-  provisioner "file" {
-    source      = "./instance-ip.txt"
-    destination = "/home/ec2-user/instance-ip.txt"
-  }
-  provisioner "local-exec" {
-    command = "echo ${self.public_ip} > instance-ip1.txt"
-  }
+  # provisioner "file" {
+  #   content     = "Hello there"
+  #   destination = "/home/ec2-user/devops.txt"
+  # }
+  # provisioner "file" {
+  #   source      = "./instance-ip.txt"
+  #   destination = "/home/ec2-user/instance-ip.txt"
+  # }
+  # provisioner "local-exec" {
+  #   command = "echo ${self.public_ip} > instance-ip1.txt"
+  # }
+  
   provisioner "remote-exec" {
     inline = [
-      "touch /home/ec2-user/devops-remote-exec.txt",
-      "sudo yum install httpd -y",
-      "sudo systemctl enable httpd",
-      "sudo systemctl start httpd"
+      "sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat/jenkins.repo",
+      "sudo rpm --import https://pkg.jenkins.io/redhat/jenkins.io.key",
+      "sudo yum upgrade",
+      "sudo yum install jenkins java-1.8.0-openjdk-devel -y",
+      "sudo systemctl daemon-reload",
+      "sudo systemctl start jenkins",
+      "sudo systemctl enable jenkins"
     ]
   }
+  # provisioner "remote-exec" {
+  #   inline = [
+  #     "touch /home/ec2-user/devops-remote-exec.txt",
+  #     "sudo yum install httpd -y",
+  #     "sudo systemctl enable httpd",
+  #     "sudo systemctl start httpd"
+  #   ]
+  # }
 }
